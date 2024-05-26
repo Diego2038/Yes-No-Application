@@ -1,22 +1,19 @@
 <template>
-  <h1>Hola mundito</h1>
+  <h1>Mi primera app</h1>
+  <my-counter />
+  <MyCounter />
 </template>
 
-<script lang="ts" setup>
-console.log('Hola mundooo');
+<script setup>
+import MyCounter from './components/MyCounter.vue';
 </script>
 
-<!-- <script lang="ts">
+<!-- <script>
 import { defineComponent } from 'vue';
+import MyCounter from './components/MyCounter.vue';
 export default defineComponent({
-  setup() {
-    console.log('Hola mudoo');
+  components: {
+    MyCounter,
   },
 });
 </script> -->
-
-<style scoped>
-h1 {
-  color: pink;
-}
-</style>
