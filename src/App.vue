@@ -1,6 +1,5 @@
 <template>
   <h1>Mi primera app</h1>
-  <my-counter />
   <MyCounter />
 </template>
 
