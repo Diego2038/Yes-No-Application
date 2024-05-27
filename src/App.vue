@@ -1,15 +1,10 @@
 <template>
-  <h1>Mi primera app</h1>
   <h1 class="text-3xl font-bold underline">Hello world!</h1>
-  <MyCounter :text="'Holis'" />
-  <MyCounterScript :text="'Soy un script xd'" />
-  <MyCounterScript2 :text="'CounterScript2'" :value="45" />
+  <IndecisionVue />
 </template>
 
-<script setup>
-import MyCounter from './components/MyCounter.vue';
-import MyCounterScript from './components/MyCounterScript.vue';
-import MyCounterScript2 from './components/my-counter-script/MyCounterScript2.vue';
+<script lang="ts" setup>
+import IndecisionVue from '@/views/IndecisionVue.vue';
 </script>
 
 <!-- <script>
