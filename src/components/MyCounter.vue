@@ -1,5 +1,6 @@
 <template>
   <section>
+    <h2>=> 😭👌{{ text }}</h2>
     <h3>Counter {{ count }}</h3>
     <h3>Square: {{ squareComputed }}</h3>
 
@@ -10,38 +11,7 @@
   </section>
 </template>
 
-<script lang="ts" setup>
-import { computed, ref } from 'vue';
-
-console.log('Hola mundooo');
-/* const props = defineProps({
-  value: {
-    type: Number,
-    default: 7,
-    required: false,
-  },
-}); */
-
-/* const props = defineProps<{
-  value: number;
-}>(); 
-*/
-
-interface Props {
-  value?: number;
-}
-const props = defineProps<Props>();
-
-const count = ref(props.value ?? 4);
-
-const squareComputed = computed(() => count.value * count.value);
-
-const decreaseCount = () => {
-  count.value--;
-};
-</script>
-
-<!-- <script lang="ts">
+<script lang="ts">
 import { computed, defineComponent, ref } from 'vue';
 export default defineComponent({
   props: {
@@ -49,6 +19,10 @@ export default defineComponent({
       default: 8,
       required: false,
       type: Number,
+    },
+    text: {
+      type: String,
+      required: true,
     },
   },
   setup(props) {
@@ -70,7 +44,7 @@ export default defineComponent({
     };
   },
 });
-</script> -->
+</script>
 
 <style scoped>
 h1 {
