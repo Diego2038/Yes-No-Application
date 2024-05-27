@@ -5,8 +5,8 @@
     <h3>Square: {{ squareComputed }}</h3>
 
     <div>
-      <button @click="decreaseCount">-1</button>
-      <button @click="count++">+1</button>
+      <button class="btn" @click="decreaseCount">-1</button>
+      <button class="btn" @click="count++">+1</button>
     </div>
   </section>
 </template>
@@ -47,7 +47,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1 {
-  color: pink;
+.btn {
+  @apply p-5 bg-blue-500 rounded mr-3 hover:bg-blue-700;
 }
 </style>
