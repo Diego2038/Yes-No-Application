@@ -9,7 +9,11 @@
     <ChatMessages :messages="messages" />
 
     <!-- MessageBox-->
-    <MessageBox />
+    <!-- <MessageBox @emitMessage="addMessage" /> -->
+    <!-- Equivalente -->
+    <MessageBox @emitMessage="addMessage($event)" />
+    <!-- Equivalente -->
+    <!-- <MessageBox @emitMessage="(t) => addMessage(t)" /> -->
   </div>
 </template>
 
@@ -32,4 +36,13 @@ const messages = ref<ChatMessage[]>([
     image: 'https://yesno.wtf/assets/no/14-cb78bf7104f848794808d61b9cd83eba.gif',
   },
 ]);
+
+const addMessage = (message: string) => {
+  const newMessage: ChatMessage = {
+    id: new Date().getTime(),
+    message: message,
+    isUserMessage: true,
+  };
+  messages.value.push(newMessage);
+};
 </script>

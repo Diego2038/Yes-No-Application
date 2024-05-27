@@ -4,9 +4,12 @@
       type="text"
       placeholder="Type your message..."
       class="flex-1 border rounded-full px-4 py-2 focus:outline-none"
+      v-model="message"
+      @keyup.enter="sendMessage"
     />
     <button
       class="bg-blue-500 text-white rounded-full p-2 ml-2 hover:bg-blue-600 focus:outline-none"
+      @click="sendMessage"
     >
       <svg
         width="20px"
@@ -31,3 +34,39 @@
     </button>
   </div>
 </template>
+
+<script setup lang="ts">
+import { defineEmits, ref } from 'vue';
+const message = ref('');
+// const emit = defineEmits(['emitMessage']); // Así se haría en JS
+const emit = defineEmits<{
+  emitMessage: [text: string];
+}>();
+
+const sendMessage = () => {
+  if (message.value.trim().length === 0) return;
+  emit('emitMessage', message.value);
+  message.value = '';
+};
+</script>
+
+<!-- <script lang="ts">
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  emits: ['emitMessage'],
+  setup(props, { emit }) {
+    const message = ref('');
+
+    const sendMessage = () => {
+      if (message.value.trim().length === 0) return;
+      emit('emitMessage', message.value);
+      message.value = '';
+    };
+
+    return {
+      message,
+      sendMessage,
+    };
+  },
+});
+</script> -->
