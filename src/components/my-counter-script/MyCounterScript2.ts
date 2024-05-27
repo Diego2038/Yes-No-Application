@@ -1,4 +1,4 @@
-import { useCounter } from '@/componsables/useCounter';
+import { useCounter } from '@/composables/useCounter';
 import { defineComponent } from 'vue';
 
 export default defineComponent({

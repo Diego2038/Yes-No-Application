@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useCounter } from '@/componsables/useCounter';
+import { useCounter } from '@/composables/useCounter';
 
 console.log('Hola mundooo');
 /* const props = defineProps({
