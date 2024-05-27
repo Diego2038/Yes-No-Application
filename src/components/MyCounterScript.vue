@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { useCounter } from '@/componsables/useCounter';
 
 console.log('Hola mundooo');
 /* const props = defineProps({
@@ -34,13 +34,14 @@ interface Props {
 }
 const props = defineProps<Props>();
 
-const count = ref(props.value ?? 4);
+// const count = ref(props.value ?? 4);
 
-const squareComputed = computed(() => count.value * count.value);
+// const squareComputed = computed(() => count.value * count.value);
 
-const decreaseCount = () => {
-  count.value--;
-};
+// const decreaseCount = () => {
+//   count.value--;
+// };
+const { count, squareComputed, decreaseCount } = useCounter(props.value ?? 4);
 </script>
 
 <style scoped>

@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue';
+import { useCounter } from '@/componsables/useCounter';
+import { defineComponent } from 'vue';
 export default defineComponent({
   props: {
     value: {
@@ -26,15 +27,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const count = ref(props.value);
-    const squareComputed = computed(() => count.value * count.value);
-    const addCount = () => {
-      count.value += 1;
-    };
-
-    const decreaseCount = () => {
-      count.value--;
-    };
+    const { count, squareComputed, decreaseCount, addCount } = useCounter(props.value);
 
     return {
       count,
