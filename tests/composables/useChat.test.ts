@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
-import { mount } from '@vue/test-utils';
 import { useChat } from '@/composables/useChat';
-import { ChatMessageInterface } from '@/interfaces/chat-messages.interfaces';
+import type { ChatMessageInterface } from '@/interfaces/chat-messages.interfaces';
+import type { YesNoResponse } from '@/interfaces/yes-no.response';
 
 describe('useChat composable', () => {
   test('add message correctly when addMessage is called', async () => {
@@ -41,6 +41,36 @@ describe('useChat composable', () => {
       isUserMessage: false,
       message: expect.any(String),
       image: expect.any(String),
+    });
+  });
+
+  test('mock response - fetch API', async () => {
+    const message = 'How are you?';
+
+    const mockResponse: YesNoResponse = {
+      answer: 'yes',
+      forced: true,
+      image: 'http://www.image.jpg',
+    };
+
+    console.log((window as any).fetch);
+    (window as any).fetch = vi.fn(async () => ({
+      json: async () => mockResponse,
+    }));
+    console.log((window as any).fetch);
+
+    const { messages, addMessage } = useChat();
+
+    await addMessage(message);
+
+    await new Promise((r) => setTimeout(r, 1600));
+
+    const [, , , itsMessage] = messages.value;
+    expect(itsMessage).toEqual({
+      id: expect.any(Number),
+      isUserMessage: false,
+      message: 'Yes',
+      image: mockResponse.image, // Look that that url image comes from the Mock
     });
   });
 });
