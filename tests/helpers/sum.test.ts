@@ -54,7 +54,7 @@ describe('addArray function', () => {
 
   test('It should be zero if the array is void', () => {
     // Preparación
-    const arr = [];
+    const arr: number[] = [];
 
     // Estimulo
     const res = addArray(arr);

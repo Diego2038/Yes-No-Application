@@ -1,4 +1,4 @@
-export interface ChatMessage {
+export interface ChatMessageInterface {
   id: number;
   message: string;
   isUserMessage: boolean;

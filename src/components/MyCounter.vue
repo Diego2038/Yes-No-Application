@@ -2,7 +2,7 @@
   <section>
     <h2>=> 😭👌{{ text }}</h2>
     <h3>Counter {{ count }}</h3>
-    <h3>Square: {{ squareComputed }}</h3>
+    <h3 data-testid="square-label">Square: {{ squareComputed }}</h3>
 
     <div>
       <button class="btn" @click="decreaseCount">-1</button>

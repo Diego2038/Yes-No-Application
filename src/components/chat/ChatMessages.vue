@@ -17,18 +17,19 @@
 
 <script setup lang="ts">
 import ChatBubble from '@/components/chat/ChatBubble.vue';
-import type { ChatMessage } from '@/interfaces/chat-messages.interfaces';
+import type { ChatMessageInterface } from '@/interfaces/chat-messages.interfaces';
 import { ref, watch } from 'vue';
 
 interface Props {
-  messages: ChatMessage[];
+  messages: ChatMessageInterface[];
 }
 
-const { messages } = defineProps<Props>();
+const props = defineProps<Props>();
 
 const chatRef = ref<HTMLDivElement | null>(null);
 
-watch(messages, () => {
+watch(props, () => {
+  console.log('Messages watch triggered');
   setTimeout(() => {
     chatRef.value?.scrollTo({
       top: chatRef.value.scrollHeight + 52,

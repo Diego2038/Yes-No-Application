@@ -1,11 +1,11 @@
 // import { getApi } from '@/api/callApi';
 import { sleep } from '@/helpers/sleep';
-import type { ChatMessage } from '@/interfaces/chat-messages.interfaces';
+import type { ChatMessageInterface } from '@/interfaces/chat-messages.interfaces';
 import type { YesNoResponse } from '@/interfaces/yes-no.response';
 import { ref } from 'vue';
 
 export const useChat = () => {
-  const messages = ref<ChatMessage[]>([
+  const messages = ref<ChatMessageInterface[]>([
     {
       id: new Date().getTime() + 1,
       message: 'Are you Jhon Connor?',
@@ -30,7 +30,7 @@ export const useChat = () => {
 
   const addMessage = async (message: string) => {
     if (message.length === 0) return;
-    const newMessage: ChatMessage = {
+    const newMessage: ChatMessageInterface = {
       id: new Date().getTime(),
       message: message,
       isUserMessage: true,
